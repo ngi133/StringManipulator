@@ -31,7 +31,7 @@ namespace StringManipulator
             return this.CountCharsWithoutSpace(input) / charsByLine;
         }
 
-        private int CountCharsWithoutSpace(string input)
+        public int CountCharsWithoutSpace(string input)
         {
             return input.Replace(" ", "").Length;
         }

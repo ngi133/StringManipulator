@@ -6,5 +6,6 @@ using StringManipulator;
 StringManipulator.StringManipulator stringManipulator = new StringManipulator.StringManipulator();
 Console.WriteLine(stringManipulator.ReverseString("Hola"));
 Console.WriteLine(stringManipulator.CountWords("Hola cómo estás?"));
-//Console.WriteLine(stringManipulator.CountLines("Hola todo bien, y vos", 3));
-//Console.WriteLine(stringManipulator.CountLines("Hola todo bien, y vos", 0));
+Console.WriteLine(stringManipulator.CountLines("Hola todo bien, y vos", 3));
+Console.WriteLine(stringManipulator.ReverseString("satolepahcnih nu se naI"));
+//Console.WriteLine(stringManipulator.CountCharsWithoutSpace("Hola todo bien, y vos"));

@@ -4,13 +4,17 @@ namespace StringManipulatorTests
 {
     public class StringManipulatorTests
     {
+        //Metodo
         private readonly StringManipulator.StringManipulator stringManipulator;
 
+
+        //Constructor
         public StringManipulatorTests()
         {
             this.stringManipulator = new StringManipulator.StringManipulator();
         }
 
+        //Test voltear palabra simple
         [Fact]
         public void ReverseString_WhenCalled_ReturnsReversedString()
         {
@@ -24,6 +28,7 @@ namespace StringManipulatorTests
             Assert.Equal("dlroW olleH", result);
         }
 
+        //Test voltear palabra multiple
         [Theory]
         [InlineData("Chau", "uahC")]
         [InlineData("Hola", "aloH")]
@@ -39,6 +44,7 @@ namespace StringManipulatorTests
             Assert.Equal(drow, result);
         }
 
+        //Test contar palabra simple
         [Fact]
         public void CountWords_WhenCalled_ReturnsNumberOfWords()
         {
@@ -52,6 +58,29 @@ namespace StringManipulatorTests
             Assert.Equal(5, result);
         }
 
+
+        //Test contar palabra simple
+
+        [Theory]
+        [InlineData("Ian es un hinchapelotas.",4)]
+        //[InlineData("Hola", "aloH")]
+
+        public void Theory_CountWords_WhenCalled_ReturnsNumberOfWords(string sentence, int drow)
+        {
+            // Arrange
+            string input = sentence;
+
+            // Act
+            int result = stringManipulator.CountWords(input);
+
+            // Assert
+            Assert.Equal(drow,result);
+
+
+        }
+
+
+        //Test contar espacios vacios simple
         [Fact]
         public void CountWords_WithEmptyString_ReturnsZero()
         {
@@ -65,6 +94,7 @@ namespace StringManipulatorTests
             Assert.Equal(0, result);
         }
 
+        //Test contar palabra excepcion null simple
         [Fact]
         public void CountWords_WithNullInput_ThrowsNullReferenceException()
         {
@@ -75,6 +105,7 @@ namespace StringManipulatorTests
             Assert.Throws<NullReferenceException>(() => stringManipulator.CountWords(input));
         }
 
+        //Test contar palabra excepcion cero caracteres x linea simple
         [Fact]
         public void CountWords_WithSubZeroCharactersPerLine_ThrowsArgumentException()
         {
@@ -86,6 +117,7 @@ namespace StringManipulatorTests
             Assert.Throws<ArgumentException>(() => stringManipulator.CountLines(input, charsByLine));
         }
 
+        //Test contar palabra excepcion cero caracteres x linea simple
         [Fact]
         public void CountWords_WithSubZeroCharactersPerLine_ThrowsArgumentException2()
         {
@@ -105,5 +137,24 @@ namespace StringManipulatorTests
 
             Assert.True(false);
         }
+
+        [Theory]
+        [InlineData("Ian es un hinchapelotas",20)]
+        public void CountCharsWithoutSpace(string sentence, int drow)
+        {
+
+            // Arrange
+            string input = sentence;
+
+            // Act
+
+            int result = stringManipulator.CountCharsWithoutSpace(input);
+
+            // Assert
+            Assert.Equal(drow, result);
+        }
+            
+
+               
     }
 }
